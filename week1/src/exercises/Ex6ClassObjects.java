@@ -22,9 +22,21 @@ public class Ex6ClassObjects {
     final Scanner sc = new Scanner(in);
 
     void program() {
-        // TODO
+        Hero[] heroes = new Hero[2];
+        for (int i = 0 ; i < 2; i++) {
+            heroes[i] = new Hero();
+            out.printf("What is the name of hero %d? > ", i+1);
+            heroes[i].name = sc.next();
+            out.printf("How strong is %s? > ", heroes[i].name);
+            heroes[i].strength = sc.nextInt();
+        }
+        if (heroes[0].strength > heroes[1].strength) {
+            out.printf("%s is stronger", heroes[0].name);
+        }
+        else {
+            out.printf("%s is stronger", heroes[1].name);
+        }
     }
-
     // ------ The class to use  -----------
     // A class for objects that describes a Hero
     class Hero {

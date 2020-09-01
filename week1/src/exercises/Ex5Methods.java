@@ -1,5 +1,6 @@
 package exercises;
 
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 /*
@@ -25,13 +26,13 @@ public class Ex5Methods {
         //out.println(digitSum(12345) == 15);
 
         int[] arr = {10, 20, 30, 40, 50};
-        out.println(next(arr, 2) == 40);    // Find *next* value given index
+//        out.println(next(arr, 2) == 40);    // Find *next* value given index
         // Index 2 is 30 so next is 40.
-        out.println(next(arr, 4) == 10);    // Index 4 is 50 so next is 10 (circular).
+//        out.println(next(arr, 4) == 10);    // Index 4 is 50 so next is 10 (circular).
 
         String winner = "Olle";
         // A special case, should print: "Winner is Olle" (or whatever name)
-        //winnerMsg(winner);
+        winnerMsg(winner);
     }
 
     // ------ Write methods below this  -----------
@@ -66,10 +67,15 @@ public class Ex5Methods {
     int next(int[] arr, int n) {
         out.print(arr.length);
         if (n+1 >= arr.length) {
-            return arr[arr.length - n];
+            out.println("foo");
+            return arr[arr.length - (n+1)];
         } else {
-            // This is a comment
             return arr[n + 1];
         }
+    }
+
+    String winnerMsg(String winnername) {
+        out.println("Winner is " + winnername);
+        return "";
     }
 }
