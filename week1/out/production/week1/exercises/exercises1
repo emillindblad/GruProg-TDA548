@@ -1,0 +1,192 @@
+
+**** Exercises week 1 ***
+
+Welcome to exercises 1! Please read the below carefully.
+
+Preparation
+-------------
+Create a directory named tda548 on the Z:\-drive. Use it to store all exercises and labs
+(if don't have, close this project, create directory, move project)
+
+NOTE: Possibly needed to access Z:\-drive from Linux
+see https://it.portal.chalmers.se/itportal/StuDATLinux/FileServ
+
+Fix code formatting keyboard shortcut
+----------------------------------
+Go to Canvas course page > Resources > Java, JavaFX och IntelliJ > "Ändra Kortkommandon".
+Do it! Important!
+
+NOTE: Most important shortcut : Ctrl z  (= undo!!!)
+
+General instructions
+----------------------
+- Files for the exercises are in directory src/exercises (i.e. files you write Java code in).
+- Last in the file header comment (the gray text) for each file is a "See: ..." reference.
+  This means there are code samples in the src/samples directory to help you.
+  The samples are all possible to run (right click in file > Run), modify, experiment, etc.
+- If stuck, don't spend too much time on a single exercise, try another one ...
+- If confused or problems to understand, ... write down and BRING QUESTIONS TO THE LECTURE!
+
+Your profile
+------------
+- If you're new to programming, do as many exercises as possible (at least 1-6), to prepare
+  for lab1. *BUT*, you can't spend all your time on exercises, lab1 need time and is mandatory.
+  Decide when to switch. Do left over exercises later or as exam recap.
+  Also: You could work in parallel with lab and exercises.
+
+- If you're more experienced you decide what to do, possibly start with lab1.
+  NOTE: Do check that you really *understand* the exercises!
+
+Exercises
+---------
+
+1.  See Ex1BMI. Implement a program to calculate body mass index. Program should run be like:
+
+    Please, enter your weight (kg) > 76
+    Please, enter your height (m) > 1.85
+    BMI = 22.205989773557338
+
+2.  See Ex2EasterSunday. Program run should be like:
+
+    Input a year (1900-2099) > 2017
+    Easter Sunday for 2017 is : 16/4
+
+    TIP: http://www.wheniseastersunday.com/
+
+3.  See Ex3SumAvg. Write a program that calculates sum and average for an arbitrary (finite)
+    number of positive integers. You should use a while-loop. Program should run like:
+
+    > 5
+    > 2
+    > 3
+    > -1         (-1 used to end input)
+    Sum = 10 Avg = 3.3333333333333335
+
+4.  Se Ex4Arrays. Implement a program like below. You should use an array to store the values and
+    a for-loops to process.
+
+    Input 5 integers (space between, then enter) > 4 2 6 1 9
+    Array is [4, 2, 6, 1, 9]
+    Input a value to find > 1
+    Value 1 is at index 3         (if not found prints: Value not found)
+
+5.  See Ex5Methods. Implement the methods (uncomment on row at the time). Program run should
+    run like:
+
+    true       (NOTE: this is the normal output when testing)
+    true
+    true
+    true
+    true
+    true
+    true
+    Winner is Olle         (this is an exception to the normal output)
+
+6.  See Ex6ClassObjects. Use the class Hero to create 2 heroes (hero objects) to be use like:
+
+    What's the name of the hero 1? > Hercules      (input data)
+    How strong is Hercules > 34
+    What's the name of the hero 2? > Atlas
+    How strong is Atlas > 45
+    Atlas is stronger
+
+    NOTE: When reading a number the scanner will leave the last char (the enter char, '\n') because
+    it can not be part of any number. To get rid of the enter char use an extra sc.readLine().
+    Else strange behaviour for program (seems like it skips an input).
+
+7.  See Ex7RPS. Implement a program for the game Rock, Paper and Scissor.
+    NOTE: The main task here is to use smallest step programming.
+    You don't need any methods for this, put all code in program().
+
+    The game should run as (just 5 rounds):
+
+    Welcome to Rock, Paper and Scissors
+    Select 1, 2 or 3 (for R, P or S) > 1
+    Computer choose: 2
+    You won
+    Result 1                                (use an int for over all result, +1 for human, total = 1)
+    Select 1, 2 or 3 (for R, P or S) > 2
+    Computer choose: 2
+    A draw
+    Result 1
+    Select 1, 2 or 3 (for R, P or S) > 3
+    Computer choose: 1
+    You won
+    Result 2                                (result, +1 for human, total = 2)
+    Select 1, 2 or 3 (for R, P or S) > 1
+    Computer choose: 1
+    A draw
+    Result 2
+    Select 1, 2 or 3 (for R, P or S) > 2
+    Computer choose: 1
+    Computer won
+    Result 1                        (total = 1 -> i.e. total positive -> human won)
+    Game over!
+    Human won.
+
+8.  See Ex8DayNumber. Implement a program that calculates the day number for a given year.
+    NOTE: Main task here is functional decomposition. Assume a top level method and decompose.
+    Test any non trivial method!
+
+    If new to programming: Make a plan and discuss with assistant before staring to implement!
+
+    Program should run like:
+
+    Input the year > 2018
+    Input the month number > 8
+    Input the day number > 27
+    Ordinal number for 27/8 in 2018 is: 239
+    2018 is not a leap year
+
+    TIP: See web how to calculate leap year.
+
+9. See Ex9TicTacToe. Implement the Tic Tac Toe game.
+   Here you should use functional decomposition and testing.
+
+   If new to programming: Make a plan and discuss with assistant before staring to implement!
+
+   Program should run like:
+
+   Welcome to Tic Tac Toe, board is ...
+   - - -             (<-- empty board)
+   - - -
+   - - -
+   Player is olle(X)
+   Select position to put mark (0-8) > 0
+   X - -
+   - - -
+   - - -
+   Player is fia(O)
+   Select position to put mark (0-8) > 1
+   X O -
+   - - -
+   - - -
+   Player is olle(X)
+   Select position to put mark (0-8) > 2
+   X O X
+   - - -
+   - - -
+   Player is fia(O)
+   Select position to put mark (0-8) > 3
+   X O X
+   O - -
+   - - -
+   Player is olle(X)
+   Select position to put mark (0-8) > 4
+   X O X
+   O X -
+   - - -
+   Player is fia(O)
+   Select position to put mark (0-8) > 5
+   X O X
+   O X O
+   - - -
+   Player is olle(X)
+   Select position to put mark (0-8) > 6
+   Game over!
+   X O X
+   O X O
+   X - -
+   Winner is olle
+
+
