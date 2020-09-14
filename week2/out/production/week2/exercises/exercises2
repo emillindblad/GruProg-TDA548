@@ -1,0 +1,92 @@
+
+**** Exercises week 2 ***
+
+Your profile
+------------
+- If you're new to programming, do as many exercises as possible, 1 is useful for lab1,
+  2 and 3 will prepare for lab2. You can't spend all your time on exercises, both lab 1
+  and 2 need time and are mandatory. Decide when to switch. Do left over exercises later
+  or as exam recap.
+- If experienced I think at least some of the later exercises will be a bit challenging
+
+NOTE: Some exercises uses JavaFX. Possibly must check Edit Configurations ...
+to have the correct path and JavaFX modules, see course page > Resources >
+Java, JavaFX och IntelliJ
+
+Exercises
+---------
+1.  See Ex1ReadPlayers. Implement the exercise to run like:
+
+    How many players? > 2
+    Name for player 1 > Olle
+    Name for player 2 > Fia
+    Players are:
+    Name Olle points 0         (Player default have 0 points)
+    Name Fia points 0
+
+    a) Add a constructor to the Player class. The constructor should make it possible to set
+    the name of the player when the player object is created.
+
+    b) Implement methods inputPlayers() and outputPlayers(). Use the constructor when initializing!
+
+    AGAIN: When mixing numerical and text input you have to remove the trailing enter key
+    ('\n') in input stream when reading numbers. Use an extra sc.readLine() to fix.
+
+
+2.  See Ex2ArrayMethod. Implement methods. In general program should just print "true".
+    The only exception is the shuffle method. Method uses Random, so hard to test.
+    Print out for shuffle should look something like:
+
+    [0, 0, 1, 0, -1, -1, 1, 0, 1, 1, 1, 1, -1, -1]     (randomly ordered elements)
+    [-1, 1, 1, 0, 0, 1, -1, 1, 1, 0, 1, -1, 0, -1]
+    [-1, 1, 1, 0, 1, 0, -1, 0, 1, 1, -1, 1, 0, -1]
+    [-1, -1, 0, 0, -1, -1, 1, 1, 0, 1, 1, 1, 1, 0]
+    [0, 0, 1, -1, -1, 0, -1, -1, 1, 1, 1, 1, 1, 0]
+    [1, -1, 0, 0, 1, -1, 1, 1, 0, 1, -1, 0, 1, -1]
+    [1, 1, 1, -1, 0, 1, 0, 0, 1, -1, -1, 0, 1, -1]
+    [-1, 1, 1, 0, -1, 0, -1, 1, 1, 1, 0, 1, 0, -1]
+    [1, 1, -1, -1, -1, 1, 0, 1, -1, 0, 1, 0, 0, 1]
+    [0, 1, 0, 1, 0, 0, 1, 1, -1, -1, 1, 1, -1, -1]
+    ...
+
+    See code for comments.
+
+3.  See Ex3MatrixMethods. Implement methods so that program prints true for everything.
+    Use functional decomposition if things getting too complex.
+
+4.  See Ex4Theory. Just uncomment (possibly run) and explain result (write it here)
+    1.  (write short explanation)
+    2.
+    3.
+    4.
+    5.
+
+5.  Ex5GameOfLife. Implement a simulation of "Game of Life", see
+    https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+    and https://bitstorm.org/gameoflife/
+
+    This is s graphical program, all graphics already implemented using JavaFX,
+    you don't need to do (or understand) any graphics coding (but is simple and fun ...).
+
+    NOTE: If any problems with graphics. Go to Canvas > course page > Resurser >
+    Java, JavaFX och IntelliJ. See section Koppla ihop JavaFX och IntelliJ.
+
+    a) Implement the init() method. The method should create and initialize the world with Cells
+       (a square matrix with Cells). See code.
+
+       - Sketch a plan and discuss with assistant before implementing!
+
+    b) Now implement the update() method. The method should calculate the next state for all
+       Cells in the world (using the rules).
+       Method called automatically by a timer, don't need to call it. Rendering will be done automatically
+
+       - If new: Make a plan! Discuss with assistants
+       - Extensive use of testing! See comments and test() method.
+
+
+6  See Ex6ThreeSumToZero. Write a method that given a sorted array of integers checks if any three of
+   the elements has the sum 0. If so, the indices for the (first) elements found are returned as an array.
+   If not, the empty array is returned.
+   NOTE: The method must be efficient i.e. not use more than 2 nested loops!
+
+

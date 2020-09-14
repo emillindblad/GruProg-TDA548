@@ -30,18 +30,33 @@ public class Ex1ReadPlayers {
         String name;   // A Player has a name and...
         int points;    // ... and points
 
-        // TODO Add a constructor
+        Player(String name, int points) {
+            this.name = name;
+            this.points = points;
+        }
     }
 
     // ---------- Methods -------------------
 
      Player[] inputPlayers() {
+        out.print("How many players? > ");
+        int nplayers = sc.nextInt();
+        Player[] players = new Player[nplayers];
+
+        for (int i = 0 ; i < nplayers; i++) {
+            out.printf("Name for player %d ? > ",(i+1));
+            String pname = sc.next();
+            players[i] = new Player(pname, 0);
+         }
         // TODO
-        return null;   // For now
+        return players;   // For now
     }
 
     void outPlayers(Player[] players){
-       // TODO
+        out.println("Players are:");
+        for (int i = 0; i < players.length; i++) {
+            out.printf("Name %s points %d \n", players[i].name, players[i].points);
+        }
     }
 
 

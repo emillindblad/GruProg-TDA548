@@ -3,6 +3,7 @@ package exercises;
 import java.util.Arrays;
 import java.util.Random;
 
+import static java.lang.Math.*;
 import static java.lang.StrictMath.round;
 import static java.lang.System.*;
 
@@ -27,8 +28,8 @@ public class Ex2ArrayMethods {
         // TODO uncomment one at a time and implement
 
         // Count occurrences of some element in arr
-        //out.println(count(arr, 2) == 4);      // There are four 2's
-        //out.println(count(arr, 7) == 1);
+//        out.println(count(arr, 2) == 4);      // There are four 2's
+//        out.println(count(arr, 7) == 1);
 
         // Generate array with 100 elements with 25% distribution of -1's and 1's (remaining will be 0)
         //arr = generateDistribution(100, 0.25, 0.25);
@@ -43,13 +44,46 @@ public class Ex2ArrayMethods {
 
         for (int i = 0; i < 10; i++) {
             // Random reordering of arr, have to check by inspecting output
-            //shuffle(arr);
+            shuffle(arr);
             out.println(Arrays.toString(arr));  // Does it look random?
         }
     }
 
 
     // ---- Write methods below this ------------
+    int count(int[] arr, int num){
+        int out = 0;
+        for (int i = 0; i < arr.length; i++) {
+           if (arr[i] == num) {
+               out++;
+           }
+        }
+        return out;
+    }
+
+    int[] generateDistribution(int length,double a, double b ) {
+        int[] arr = new int[length];
+        int dista = (int) round(arr.length * a);
+        int distb = (int) round(arr.length * b);
+        for (int i = 0 ; i < dista; i++) {
+            arr[i] = 1;
+        }
+        for (int i = dista ; i < dista + distb; i++) {
+            arr[i] = -1;
+        }
+        return arr;
+    }
+
+
+    int[] shuffle(int[] arr) {
+       for (int i = 0; i < arr.length ; i++) {
+           int hold = arr[i];
+           int swap = rand.nextInt(arr.length);
+           arr[i] = arr[swap];
+           arr[swap] = hold;
+       }
+       return arr;
+    }
 
     // TODO
 }
