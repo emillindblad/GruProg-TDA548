@@ -139,13 +139,13 @@ public class Ex3MatrixMethods {
         }
         return m;
     }
-// Not done yet
+    
     int sumNeighbours(int[][] m, int a, int b) {
         int sum = 0;
         for (int r = 0; r < m.length; r++) {
             for (int c = 0; c < m.length; c++) {
                 if (m[r][c] != m[a][b] & (r != a+2 & c != b+2)) {
-                    sum += m[a][c];
+                    sum += m[r][c];
                 }
             }
         }
