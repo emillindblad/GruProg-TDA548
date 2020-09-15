@@ -25,8 +25,6 @@ public class Ex2ArrayMethods {
     void program() {
         int[] arr = {1, 2, 2, 5, 3, 2, 4, 2, 7};  // Hard coded test data
 
-        // TODO uncomment one at a time and implement
-
         // Count occurrences of some element in arr
 //        out.println(count(arr, 2) == 4);      // There are four 2's
 //        out.println(count(arr, 7) == 1);
@@ -74,7 +72,6 @@ public class Ex2ArrayMethods {
         return arr;
     }
 
-
     int[] shuffle(int[] arr) {
        for (int i = 0; i < arr.length ; i++) {
            int hold = arr[i];
@@ -84,6 +81,4 @@ public class Ex2ArrayMethods {
        }
        return arr;
     }
-
-    // TODO
 }
