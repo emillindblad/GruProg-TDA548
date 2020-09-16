@@ -132,7 +132,7 @@ public class Ex3MatrixMethods {
         int[][] m = new int[arr.length / 3][arr.length / 3];
         int i = 0;
         for (int r = 0; r < m.length; r++) {
-            for (int c = 0; c < m.length; c++) {
+            for (int c = 0; c < m[r].length; c++) {
                 m[r][c] = arr[i];
                 i++;
             }
@@ -143,7 +143,7 @@ public class Ex3MatrixMethods {
     int sumNeighbours(int[][] m, int a, int b) {
         int sum = 0;
         for (int r = 0; r < m.length; r++) {
-            for (int c = 0; c < m.length; c++) {
+            for (int c = 0; c < m[r].length; c++) {
                 if (m[r][c] != m[a][b] & (r != a+2 & c != b+2)) {
                     sum += m[r][c];
                 }

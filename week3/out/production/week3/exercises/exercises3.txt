@@ -1,0 +1,105 @@
+**** Exercises week 3 ***
+
+Your profile
+-----------
+- These exercises are not strictly necessary for any lab. Will improve your general
+  programming skills. If new to programming prioritize exercises week2 and lab2.
+  Do left over exercises later or as exam recap. If stuck or curious or for any other
+  reason write down and BRING QUESTIONS TO LECTURE!
+
+Exercises
+---------
+
+1.  See Ex1LoopPuzzlers. For a) use loops, arithmetic and " " to print a multiplication table.
+    For b) and c) write loops that print out the "patterns" (just start of patterns shown,
+    they are in principle infinite). You may only use loops, out.println(), out.print(),
+    with no args or with arguments "X" or " " (space).
+
+
+     a)  1  2  3  4  5  6  7  8  9 10
+         2  4  6  8 10 12 14 16 18 20
+         3  6  9 12 15 18 21 24 27 30
+         4  8 12 16 20 24 28 32 36 40
+         5 10 15 20 25 30 35 40 45 50
+         6 12 18 24 30 36 42 48 54 60
+         7 14 21 28 35 42 49 56 63 70
+         8 16 24 32 40 48 56 64 72 80
+         9 18 27 36 45 54 63 72 81 90
+        10 20 30 40 50 60 70 80 90 100
+
+    b)  X
+        XX
+        XXX
+        XXXX
+        XXXXX
+        XXXXXX
+        XXXXXXX
+        ...
+
+    c) XXXXXXXXXX
+        XXXXXXXXXX
+         XXXXXXXXXX
+          XXXXXXXXXX
+           ....
+
+
+
+2.  See Ex2ArrayMethods. Make program print true for all calls. If methods too
+    complex, break down.
+
+3.  See Ex3Theory. Uncomment and run each section. Explain result. Write explanation here
+    1.
+    2.
+    3.
+    4.
+    5.
+
+4.  See Ex4MedianKthSmallest. Implement methods that calculate the median and the kth smallest
+    of an integer array. See comments.
+    Hint: It's useful to do pre-calculations to simplify the main task!
+
+5.  See Ex5PointOfEquality. Implement method diffIndex() so that all output prints true.
+    Hint: Overloading
+
+6.  See Ex6GenericMethods.
+
+    Create generic methods for diffIndex (from above), array shuffling and sorting.
+    I.e. the methods should be able to handle any reference type array.
+
+    Some references:
+    https://docs.oracle.com/javase/tutorial/extra/generics/methods.html
+    https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html
+    https://docs.oracle.com/javase/tutorial/java/generics/boundedTypeParams.html
+
+7.  See Ex7LCRSimulation. Implement a simulation of the dice game LCR,
+    see https://en.wikipedia.org/wiki/LCR_(dice_game). The main task is to apply
+    functional decomposition to get a well structured program. Draw a diagram before
+    starting to implement!
+
+    The simulation should run like:
+
+    Simulation starts
+    olle:3 fia:3 pelle:3
+    olle got [L, ., C]
+    olle:1 fia:3 pelle:4
+    pelle got [C, R, .]
+    olle:2 fia:3 pelle:2
+    fia got [C, C, L]
+    olle:3 fia:0 pelle:2
+    olle got [., ., L]
+    olle:2 fia:0 pelle:3
+    pelle got [L, ., .]
+    olle:2 fia:1 pelle:2
+    fia got [C]
+    olle:2 fia:0 pelle:2
+    olle got [., C]
+    olle:1 fia:0 pelle:2
+    pelle got [., L]
+    olle:1 fia:1 pelle:1
+    fia got [R]
+    olle:1 fia:0 pelle:2
+    olle got [L]
+    olle:0 fia:0 pelle:3     (finished, pelle is winner)
+
+
+
