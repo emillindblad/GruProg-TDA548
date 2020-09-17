@@ -1,5 +1,6 @@
 package exercises;
 
+import static java.lang.System.out;
 /*
  *  For each of the section below. Uncomment and explain
  *
@@ -16,8 +17,7 @@ public class Ex4Theory {
         // 1. -------------------------------------------
 
         // Uncomment and run. Which value is correct for the volume of a sphere?
-        /*
-        int r = 10;
+        /*int r = 10;
         double pi = 3.141;
         double vol1 = 4 * pi / 3 * r * r * r;
         double vol2 = pi * r * r * r * (4 / 3);
@@ -27,8 +27,11 @@ public class Ex4Theory {
         out.println(vol1);
         out.println(vol2);
         out.println(vol3);
-        out.println(vol4);
-        */
+        out.println(vol4);*/
+
+        //vol1 returns the correct value
+        //vol2 and 3 gives wrong value because of mix between integer and float operations in the same variable.
+        //vol4 is wrong because the order of operations is wrong.
 
         // 2. ---------------------------------------------------
 
@@ -48,13 +51,13 @@ public class Ex4Theory {
             out.println(y);
         }
         out.println(x);
-        out.println(y);
-        */
+        out.println(y);*/
+
+        //x is already defined in the outer block and is therefore not definable in the inner block. Also x is not defined in the scope of out.println();
 
         // 3. ----------------------------------------------------------
 
         // Uncomment and run. Explain result!
-        /*
         double d1 = 1.0;
         double d2 = 1.0;
         d1 = d1 - 0.7 - 0.3;
@@ -62,7 +65,8 @@ public class Ex4Theory {
         out.println(d1 == 0);
         out.println(d2 == 0);
         out.println(d1 == d2);
-        */
+
+        // Aritmetic with odd floating point numbers can result in a rounding error
 
         // 4. -----------------------------------------------------
 
