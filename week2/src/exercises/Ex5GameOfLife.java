@@ -45,10 +45,12 @@ public class Ex5GameOfLife extends Application {
 
     @Override
     public void init() {
-        // test();        // <--------------- Uncomment to test!
+        test();        // <--------------- Uncomment to test!
         int nLocations = 10000;
         double distribution = 0.15;   // % of locations holding a Cell
-        // TODO Create and populate world
+        Cell[] data = getCells(nLocations, distribution);
+        shuffle(data);
+
     }
 
     // Implement this method (using functional decomposition)
@@ -60,8 +62,25 @@ public class Ex5GameOfLife extends Application {
 
     // -------- Write methods below this --------------
 
+    Cell[] getCells(int nCells, double percentAlive) {
+        Cell[] cells = new Cell[nCells];
+        int nAlive = (int) round(percentAlive * nCells);
+        int i = 0;
+        while (nAlive > 0) {
+            cells[i] = Cell.ALIVE;
+            nAlive--;
+            i++;
+        }
+        while (i < nCells) {
+            cells[i] = Cell.DEAD;
+            i++;
+        }
+        return cells;
+    }
 
-
+    void shuffle(Cell[] data) {
+        for (int i = data.length; )
+    }
 
     // ---------- Testing -----------------
     // Here you run your tests i.e. call your logic methods
