@@ -1,0 +1,42 @@
+**** Exercises week 4 ***
+
+Your profile
+-----------
+- If you're new to programming, 3 and 4 will prepare for lab3.
+  Do left over exercises later or as exam recap.
+
+General comment
+---------------
+In these exercises you should try to use existing classes and methods as much as possible.
+Use IntelliJ code completion (type '.' after object to get lists of possibly useful methods).
+Also see Web. Learning to search for information is an integral part of programming.
+
+Exercises
+---------
+
+1.  See Ex1WordCount. Implement a method that calculates the number of word in a text.
+
+2.  See Ex2PigLatin. Implement a method to translate an English sentence to Pig Latin.
+    https://en.wikipedia.org/wiki/Pig_Latin
+
+    Use StringBuilder, use functional decomposition if methods too big.
+
+3.  See Ex3ReadNumber. Implement method readNumber (to extract a number out of a string).
+    Must use List/ArrayList and StringBuilder!
+
+4.  See Ex4CheckParen. Implement method to check parentheses matching for (), [] and {}.
+    Must use a stack (= Dequeue/ArrayQueue in Java).
+
+5.  See Ex5StringOrdering. Implement a method that checks if all chars in a string have
+    the same "ordering" as a given string. See comments in file.
+
+6.  See Ex6SJT. Implement the Steinhaus-Johnson-Trotter algorithm for permutations (non recursive)
+    See https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm
+    Functional decomposition will excel here!
+
+7.  See Ex7Permutations. Permutations again. This is assumed to be implemented using recursion.
+    Search web for hints/help.
+
+
+
+
