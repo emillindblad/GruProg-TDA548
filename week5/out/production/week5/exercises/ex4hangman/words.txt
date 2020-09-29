@@ -1,0 +1,14 @@
+instansvariabel
+instans
+konstruktor
+attribut
+icke-muterbar
+parameter
+argument
+anrop
+referens
+typ
+variabel
+loop
+objekt
+klass

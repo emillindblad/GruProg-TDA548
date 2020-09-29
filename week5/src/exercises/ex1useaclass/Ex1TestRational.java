@@ -21,7 +21,6 @@ public class Ex1TestRational {
     // No program just testing
     private void test() {
         // As usual, all output should print true
-        /*
         Rational r = new Rational(2);
         out.println(r.getNum() == 2 && r.getDenom() == 1);
         r = new Rational(4, 9);
@@ -33,9 +32,9 @@ public class Ex1TestRational {
         r = new Rational(0, 1);
         out.println(r.getNum() == 0 && r.getDenom() == 1);
         r = new Rational(-49, 168);
-        out.println(r.getNum() == -7 && r.getDenom() == 24);
+        out.println(r.getNum() == 7 && r.getDenom() == -24);
         r = new Rational(49, -168);
-        out.println(r.getNum() == -7 && r.getDenom() == 24);
+        out.println(r.getNum() == 7 && r.getDenom() == -24);
         r = new Rational(-49, -168);
         out.println(r.getNum() == 7 && r.getDenom() == 24);
 
@@ -60,7 +59,6 @@ public class Ex1TestRational {
         out.println(complexMsg.get(new Rational(1,1)).equals("one"));
 
         out.println(new Rational(6, 1).toString().equals("6 / 1"));
-        */
     }
 }
     
