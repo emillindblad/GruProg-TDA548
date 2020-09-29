@@ -1,0 +1,95 @@
+
+**** Exercises week 5 ***
+
+Your profile
+-----------
+- If you're new to programming, 1-4 will prepare for lab4
+  (do at least 1-2). As usual, can't spend all your time here. Do left over exercises
+  later or as exam recap.
+
+Exercises
+---------
+
+1.  See ex1useaclass directory. Implement the class Rational so that all tests
+    in Ex1TestRational pass.
+
+    TIP: Always store rationals in shortest form,
+    https://en.wikipedia.org/wiki/Euclidean_algorithm
+
+    TIP: It's possible to generate the equals and hashCode methods (possibly modify
+    and/or clean up a bit)
+
+2.  See ex2usemoreclasses. Implement classes Point and Triangle so that all test
+    in Ex2TestPointTriangle passes. Triangle should use Point and should use Herons
+    formula to calculate the area, See https://en.wikipedia.org/wiki/Heron%27s_formula
+
+3.  See Ex3Theory. Uncomment and answer questions. Write answer here
+    1.
+    2.
+    3.
+    4.
+    5.
+
+
+4.  See directory ex4hangman. Implement a text based object oriented version of the Hangman game
+    See: https://en.wikipedia.org/wiki/Hangman_(game).
+
+    - All classes needed are there.
+    - Break down and decide which data and which method in which classes.
+    - The main class, with the game loop is CLI (also contains all IO)
+    - Let CLI do calls on the HangMan class (only) to do the work. Hangman will in
+      turn delegate to other objects to fulfill their part of the work.
+    - Make a sketch discuss with assistants
+
+    A run of the game outputs:
+
+    Welcome to HangMan, try to guess the word! It's 7 char long
+    Enter a char > i
+
+    i _ _ _ _ _ _
+    Enter a char > x
+    ---|
+
+    i _ _ _ _ _ _
+    Enter a char > n
+    ---|
+
+    i n _ _ _ n _
+    Enter a char > x
+    ---|
+       |
+
+    i n _ _ _ n _
+    Enter a char > x
+    ---|
+       |
+       O
+
+    ... (etc)
+
+    i n _ _ _ n _
+    Enter a char > x
+    ---|
+       |
+       O
+      /|\
+      /
+    i n _ _ _ n _
+    Enter a char > x
+    ---|
+       |
+       O
+      /|\
+      / \
+
+    i n _ _ _ n _
+    Sorry you lost. Word was: instans
+
+    (if win: Congratulation you made it! Word was ..)
+
+
+5.  See Ex5SplitList. Implement a method to partition a list into sub lists.
+    Optionally make method generic.
+
+6.  See Ex6Grouping. Group a list of Positions (row, col) into sub lists in which all
+    positions have the same row. You should use Map/HashMap.
