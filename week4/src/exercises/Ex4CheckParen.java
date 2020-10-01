@@ -26,10 +26,10 @@ public class Ex4CheckParen {
 
     void program() {
         // All should be true
-        //out.println(checkParentheses("()"));
-        //out.println(checkParentheses("(()())"));
-        //out.println(!checkParentheses("(()))")); // Unbalanced
-        //out.println(!checkParentheses("((())")); // Unbalanced
+        out.println(checkParentheses("()"));
+        out.println(checkParentheses("(()())"));
+        out.println(!checkParentheses("(()))")); // Unbalanced
+        out.println(!checkParentheses("((())")); // Unbalanced
 
         //out.println(checkParentheses("({})"));
         //out.println(!checkParentheses("({)}"));  // Bad nesting
@@ -40,7 +40,9 @@ public class Ex4CheckParen {
 
     // ----------- Methods -------------------------
 
-
+    boolean checkParentheses(String paren) {
+        return true;
+    }
 
     // This is interesting because have to return, but what if no match?!?
     char matching(char ch) {
