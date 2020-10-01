@@ -20,7 +20,6 @@ public class Ex2TestPointTriangle {
 
     private void test() {
         // All should print true as usual
-        /*
         // Point
         Point p = new Point(1, 2, 3);
         out.println(p.distance(new Point(p)) == 0);
@@ -43,7 +42,6 @@ public class Ex2TestPointTriangle {
         // Try to find triangle in list
         out.println(trs.contains(new Triangle(p1, p2, p3)));
         out.println(!trs.contains(new Triangle(p3, p1, p2)));
-        */
     }
 
 }

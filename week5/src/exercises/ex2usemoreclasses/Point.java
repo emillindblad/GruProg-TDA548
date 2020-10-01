@@ -13,7 +13,29 @@ import static java.lang.Math.sqrt;
 
 */
 public class Point {
-    // TODO
+
+    private int x;
+    private int y;
+    private int z;
+
+    public Point(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public Point(Point other) {
+        this(other.x, other.y, other.z);
+    }
+
+    public int distance(Point other) {
+        double dx = (double) this.x-other.x;
+        double dy = (double) this.y-other.y;
+        double dz = (double) this.z-other.z;
+        int d = (int) sqrt(pow(dx,2.0)+pow(dy,2.0)+pow(dz,2.0));
+        return d;
+
+    }
 }
 
 
