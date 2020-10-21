@@ -1,0 +1,42 @@
+
+**** Exercises week 6 ***
+
+Exercise 1 ans 2 prepare for lab 4.
+Exercise 3 (theory) is important **WILL** show up on exam!
+
+Exercises
+---------
+
+1.  See ex1inheritance. Implement classes Vehicle, Car and Van to make program TestCarVan print the below.
+    Let Car anv Van inherit from Vehicle and override the toString()-method. All data should be set in constructors.
+    All data should be private. There should be NO redundant code.
+
+    Description of classes:
+    - A Car has an id, a top speed and an owner (a Person).
+    - A Van has an owner (a Person), a max cargo and an id.
+
+    A run of the program should look like:
+
+    Car{topSpeed=160.0{owner=Person{id='123', name='olle'}, id='abc'}}
+    Van{maxCargo=400.0{owner=Person{id='456', name='fia'}, id='def'}}
+    Car{topSpeed=210.0{owner=Person{id='456', name='fia'}, id='ghi'}}
+    Van{maxCargo=800.0{owner=Person{id='123', name='olle'}, id='jkl'}}
+
+    TIP: Possible for IntelliJ to generate constructors and toString()
+
+2.  See ex2asteroids. A sketch of the Asteroids game,
+    see https://en.wikipedia.org/wiki/Asteroids_(video_game). This is a JavaFX program.
+
+    The application is functioning, you should just refactor. Run class AsteroidsGUI!
+    Use arrow keys! Refactor the classes to remove redundancy. Create common abstract base classes.
+    Each base class should reflect one "kind" of objects (not everything i one base class).
+    All data should be private so need setter/getters.
+
+3.  See ex3theory. For each file, see file header comments.
+
+
+
+
+
+
+
