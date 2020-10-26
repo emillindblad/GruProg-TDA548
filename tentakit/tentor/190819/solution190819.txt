@@ -1,0 +1,282 @@
+/*
+ *  Suggested solutions exam TDA548 2019-08-19
+ *
+ */
+
+    // -------------------------- 1 -------------------- (4p)
+
+    // See lecture slides
+
+    // -------------------------- 2 -------------------- (2p)
+
+        int c = 0;
+        double fst = 1;
+        double sec = 2;
+        while (true) {
+            if (fst == sec) { // Bad! Compare doubles
+                break;         // Non terminating
+            }
+            fst = fst + 0.1;
+            c++;
+        }
+        out.println(c);
+
+
+    // ---------------- 3 ---------------------- (6p)
+
+   void reorder(int[] order, int[] arr) {
+        int[] tmp = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            tmp[order[i]] = arr[i];
+        }
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = tmp[i];
+        }
+    }
+
+    // ---------------- 4 --------------------- (12p)
+ boolean isValidSudokuSolution(int[][] sudoku) {
+        for (int r = 0; r <= 6; r = r + 3) {
+            for (int c = 0; c <= 6; c = c + 3) {
+                int[] sub = getSubmatrixAsArray(r, c, sudoku);
+                if (!contains1to9(sub)) {
+                    return false;
+                }
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            int[] row = getRow(i, sudoku);
+            int[] col = getCol(i, sudoku);
+            if (!contains1to9(row) || !contains1to9(col)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    int[] getCol(int i, int[][] sudoku) {
+        int[] col = new int[sudoku.length];
+        for (int r = 0; r < col.length; r++) {
+            col[r] = sudoku[r][i];
+        }
+        return col;
+    }
+
+    int[] getRow(int i, int[][] sudoku) {
+        return sudoku[i];
+    }
+
+    int[] getSubmatrixAsArray(int top, int left, int[][] sudoku) {
+        int[] arr = new int[sudoku.length];
+        int i = 0;
+        for (int r = top; r < top + 3; r++) {
+            for (int c = left; c < left + 3; c++) {
+                arr[i] = sudoku[r][c];
+                i++;
+            }
+        }
+        return arr;
+    }
+
+    boolean contains1to9(int[] arr) {
+        int[] freq = new int[arr.length + 1];
+        for (int i = 0; i < arr.length; i++) {
+            freq[arr[i]]++;
+        }
+        for (int i = 1; i < arr.length; i++) {
+            if (freq[i] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    // ------------------------ 5 ------------------ (8p)
+
+    String getLyndonWord(String string) {
+        List<String> strs = getRotations(string);
+        String min = strs.get(0);
+        for (String s : strs) {
+            if (s.compareTo(min) < 0) {  // NOTE compareTo in Appendix
+                min = s;
+            }
+        }
+        return min;
+    }
+
+    List<String> getRotations(String s) {
+        List<String> strs = new ArrayList<>();
+        String rot = s;
+        for (int i = 0; i < s.length(); i++) {
+            String pre = rot.substring(0, 1);
+            String post = rot.substring(1);
+            rot = post + pre;
+            strs.add(rot);
+        }
+        return strs;
+    }
+
+    // ---------------- 6 ------------------------------- (8p)
+
+    (See link to drawing)
+
+    X x1 = new X(new Y(), 2);
+    X x2 = new X(new Y(), 3);  // Before
+
+    doIt(x1, x2);      // Call
+    // After
+
+    void doIt(X x1, X x2) {
+        x1.get().set(x2);
+        x1.get().get().set(9);
+    }
+
+
+    class X {
+        int i;
+        Y y;
+
+        public X(Y y, int i) {
+            this.i = i;
+            this.y = y;
+            y.set(this);
+        }
+
+        Y get() {
+            return y;
+        }
+
+        void set(int i) {
+            this.i = i;
+        }
+    }
+
+    class Y {
+        X x;
+
+        void set(X x) {
+            this.x = x;
+        }
+
+        X get() {
+            return x;
+        }
+    }
+
+
+    // -------------------- 7 ------------------------- (12p)
+
+  public class Customer {
+        private String name;
+        private  String phone;
+       // ...
+    }
+
+    class TimeSlot {
+        boolean overlaps(TimeSlot other) {
+            return false;
+        }
+        // ...
+    }
+
+    public class Table {
+        private final int id;
+        private final int maxPersons;
+
+        public Table(int id, int maxPersons) {
+            this.id = id;
+            this.maxPersons = maxPersons;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public int getMaxPersons() {
+            return maxPersons;
+        }
+    }
+
+    public class Booking {
+        private final TimeSlot slot;
+        private final Customer customer;
+        private final Table tables;
+
+        public Booking(TimeSlot slot, Customer customer, Table tables) {
+            this.slot = slot;
+            this.customer = customer;
+            this.tables = tables;
+        }
+
+        public TimeSlot getSlot() {
+            return slot;
+        }
+
+        public Customer getCustomer() {
+            return customer;
+        }
+
+        public Table getTable() {
+            return tables;
+        }
+    }
+
+    public class Restaurant {
+        private final List<Table> tables = new ArrayList<>();
+        private List<Booking> bookings = new ArrayList<>();
+
+        public boolean bookTable(Customer customer, int nPersons, TimeSlot slot) {
+            // Customer has already booked?
+            for (Booking b : bookings) {
+                if (b.getCustomer().equals(customer)) {
+                    return false;
+                }
+            }
+            // Find free table with free slot
+            for (Table t : tables) {
+                if (!booked(t, slot) && t.getMaxPersons() >= nPersons) {
+                    bookings.add(new Booking(slot, customer, t));
+                    return true;
+                }
+            }
+            // Find free table with free slot
+            for (Table t : tables) {
+                if (!booked(t, slot) && t.getMaxPersons() >= nPersons) {
+                    bookings.add(new Booking(slot, customer, t));
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // Helper
+        private boolean booked(Table table, TimeSlot slot) {
+            for (Booking b : bookings) {
+                if (b.getTable().equals(table) && b.getSlot().overlaps(slot)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    }
+
+    // --------------------- 8 --------------------------- (8p)
+
+    a) doIt C  (cast ok then override)
+
+    b) doIt A  (overload, fixed at compile time)
+
+    c) Compile error (no super/sub)
+
+    d) Class cast exception (no super sub for B abd C)
+
+    e) doIt C (override, param sub to A so OK)
+
+    f) Compile error (no such method)
+
+    g) Compile error (no super sub for generic types)
+
+    h) Runtime exception (array store exception)

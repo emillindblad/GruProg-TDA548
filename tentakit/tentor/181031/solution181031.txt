@@ -1,0 +1,184 @@
+/*
+
+    Suggested solutions to exam TDA548 2018-10-31
+
+*/
+
+    // --------- 1 --------------  (4p)
+
+    See lecture notes
+
+    // --------- 2 --------------   (2p)
+
+    i <= j && k <= i && j <= k will never be true i.e. infinite loop
+
+    // --------- 3 -------------------  (6p)
+
+
+    double cos(double deg, int n) {
+        double rad = deg * (PI / 180.0);
+        double res = 1, sign = 1, fact = 1, pow = 1;
+        for (int i = 1; i < n; i++) {
+            sign = sign * -1;
+            fact = fact * (2 * i - 1) * (2 * i);
+            pow = pow * rad * rad;
+            res = res + sign * pow / fact;
+        }
+        return res;
+    }
+
+    // --------- 4 ------------------- (10p)
+
+    // Get all elements present on all rows
+    int[] getCommonRowElements(int[][] matrix) {
+        int[] res = new int[matrix.length];
+        int[] firstRow = matrix[0];
+        int k = 0;
+        for (int col = 0; col < matrix.length; col++) {
+            if (isInAllRows(firstRow[col], matrix)) {
+                res[k] = firstRow[col];
+                k++;
+            }
+        }
+        int[] cut = new int[k];       // Remove 0's
+        for (int i = 0; i < k; i++) {
+            cut[i] = res[i];
+        }
+        return cut;
+    }
+
+    // Is value n in all rows? n is value matrix are the rows to check
+    boolean isInAllRows(int n, int[][] matrix) {
+        for (int row = 0; row < matrix.length; row++) {
+            if (!isInRow(n, matrix[row])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Is value n in this row? n is value and row is row in matrix
+    boolean isInRow(int n, int[] row) {
+        for (int i = 0; i < row.length; i++) {
+            if (row[i] == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // -------- 5 ---------  (10p)
+
+    List<String> getSpecials(String str) {
+        List<String> subs = subStrings(str);
+        List<String> specs = new ArrayList<>();
+        for (String s : subs) {
+            if (isVowelConsonant(s) || isConsonantVowel(s)) {
+                specs.add(s);
+            }
+        }
+        return specs;
+    }
+
+    List<String> subStrings(String str) {
+        List<String> subs = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i + 1; j <= str.length(); j++) {
+                subs.add(str.substring(i, j));
+            }
+        }
+        return subs;
+    }
+
+    boolean isVowelConsonant(String str) {
+        return isVowel(str.charAt(0)) && isConsonant(str.charAt(str.length() - 1));
+    }
+
+    boolean isConsonantVowel(String str) {
+        return isConsonant(str.charAt(0)) && isVowel(str.charAt(str.length() - 1));
+    }
+
+    boolean isVowel(char ch) {
+        return "aeiou".indexOf(ch) >= 0;
+    }
+
+    boolean isConsonant(char ch) {
+        return !isVowel(ch);
+    }
+
+    // -------- 6 ---------  (8p)
+
+    See image (link close to this)
+
+    // ------- 7 ----------- (12p)
+
+     public class Flight {
+            private final String destination;
+            private String dateTime;
+            private final String airport;
+            private final List<Seat> seats;  // Or = new ArrayList<>();
+
+            public Flight(String destination, String dateTime, String airport) {
+                this.destination = destination;
+                this.dateTime = dateTime;
+                this.airport = airport;
+            }
+
+            public Seat getFreeSeat() {
+                for (Seat s : seats) {
+                    if (s.getStatus() == Status.FREE) {
+                        return s;
+                    }
+                }
+                return null;
+            }
+
+            // Assume needed setters/getters here
+        }
+
+        public class Booking {
+            private final Flight flight;
+            private final Passenger passenger;
+            private final Seat seat;
+
+            public Booking(Flight flight, Seat seat, Passenger passenger) {
+                this.flight = flight;
+                this.seat = seat;
+                this.passenger = passenger;
+            }
+            // getters omitted
+        }
+
+        public class Broker {
+            private final List<Flight> flights = new ArrayList<>();
+            private final List<Booking> bookings = new ArrayList<>();
+
+            public boolean bookFlight(String from, String to, String dateTime, Passenger passenger) {
+                for (Flight f : flights) {
+                    if (f.getAirport().equals(from) && f.getDestination().equals(to)
+                                   && f.getDateTime().equals(dateTime)) {
+                        Seat s = f.getFreeSeat();
+                        if (s != null) {
+                            return bookings.add(new Booking(f, s, passenger));
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+
+    // ------- 8 ----------- (8p)
+
+     a) OK, "A doA"
+     b) Compile error, no super/sub for B and C
+     c) Ok, "C doB"
+     d) Ok "A doA()"
+     e) Compile error. No super/sub between B and C
+     f) Runtime: Class cast exception, can't cast B to C no super/sub
+     g) Compile error. No super/sub between interfaces
+
+
+
+

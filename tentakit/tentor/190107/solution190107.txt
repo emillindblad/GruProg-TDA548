@@ -1,0 +1,214 @@
+/*
+ *  Suggested solutions exam TDA548 2019-01-07
+ *
+ */
+
+    // -------------------------- 1 -------------------- (4p)
+
+    // See lecture slides
+
+    // -------------------------- 2 -------------------- (2p)
+
+    void errors() {
+        MyClass m = new MyClass();
+        m.check(7);
+    }
+
+    static class MyClass {
+        static Integer i;               // i is null NOT 0;
+
+        boolean check(int threshold) {  // Instance variable can access class variable (static), OK!
+            return i <= threshold;      // When try to unbox null pointer exception
+        }
+    }
+
+    // ---------------- 3 ---------------------- (6p)
+
+    int nClump(int arr[]) {
+        int n = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                n++;
+            }
+            // NOTE: Order of conjunction!
+            while (i < arr.length - 1 && arr[i] == arr[i + 1]) {
+                i++;
+            }
+        }
+        return n;
+    }
+
+    // ---------------- 4 --------------------- (12p)
+
+    // Is there a submatrix with all 1's?
+    boolean hasAllOneSubmatrix(int[][] matrix, int subSize) {
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix.length; col++) {
+                if (isInside(row, col, subSize, matrix.length)) {
+                    if (isAllOne(matrix, row, col, subSize)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    // Check if submatrix indices are inside the outer matrix
+    boolean isInside(int row, int col, int size, int max) {
+        return 0 <= row && row + size <= max && 0 <= col && col + size <= max;
+    }
+
+    // Check if all elements in submatrix is 1
+    boolean isAllOne(int[][] m, int row, int col, int size) {
+        for (int r = row; r < row + size; r++) {
+            for (int c = col; c < col + size; c++) {
+                if (m[r][c] == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    // ------------------------ 5 ------------------ (8p)
+
+    String compress(String source) {
+        StringBuffer dest = new StringBuffer();
+        for (int i = 0; i < source.length(); i++) {
+            int runLength = 1;
+            while (i + 1 < source.length()
+                    && source.charAt(i) == source.charAt(i + 1)) {
+                runLength++;
+                i++;
+            }
+            dest.append(runLength);
+            dest.append(source.charAt(i));
+        }
+        return dest.toString();
+    }
+
+    // ---------------- 6 ------------------------------- (8p)
+
+    A[] as = { new A(1), new A(2) , new A(3)};
+    as[0].a = as[1];
+    as[1].a = as[2];
+    as[2].a = as[0];
+    M m = new M(as[0]);   // Before
+
+    doIt(m);   // Call
+               // After
+
+
+    void doIt(M m) {
+       m.a = m.a.a;
+    }
+
+
+    class M {
+        A a;
+
+        public M(A as) {
+            this.a = a;
+        }
+    }
+
+    class A {
+        int i;
+        A a;
+
+        public A(int i) {
+            this.i = i;
+        }
+    }
+
+    // -------------------- 7 ------------------------- (10p)
+
+    public class Employee {                              (2p)
+        private final String id;
+        private final String name;
+
+        public Employee(String id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+    }
+
+    public class Office {                                  (3p)
+        private final String id;
+        private final List<Employee> staff = new ArrayList<>();
+        private int maxStaff;
+
+
+        public Office(String id, int maxStaff) {
+            this.id = id;
+            this.maxStaff = maxStaff;
+        }
+
+        public List<Employee> getStaff() {
+            return staff;
+        }
+
+        public int getMaxStaff() {
+            return maxStaff;
+        }
+
+        public String getId() {
+            return id;
+        }
+    }
+
+    public class Company {                                        (5p)
+        private final List<Office> offices = new ArrayList<>();
+        private final List<Employee> employees = new ArrayList<>();
+
+        public boolean relocate(Employee employee, String fromOfficeId, String toOfficeId) {
+            Office from = getOffice(fromOfficeId);
+            if (from == null) {
+                return false;
+            }
+            if (!from.getStaff().contains(employee)) {
+                return false;
+            }
+            Office to = getOffice(toOfficeId);
+            if (to == null) {
+                return false;
+            }
+            if (to.getStaff().contains(employee)) {
+                return false;
+            }
+            if (to.getStaff().size() >= to.getMaxStaff()) {
+                return false;
+            }
+            boolean success = to.getStaff().add(employee);
+            if (success) {
+                success = from.getStaff().remove(employee);
+            }
+            return success;
+        }
+
+        private Office getOffice(String officeId) {
+            for (Office o : offices) {
+                if (o.getId().equals(officeId)) {
+                    return o;
+                }
+            }
+            return null;
+        }
+    }
+
+    // --------------------- 8 --------------------------- (10p)
+
+    a) "doIt C" (override)
+
+    b) compile error, sub = super (reversed)
+
+    c) "doIt A" (overload)                                        (2p)
+
+    d) runtime error casting C to D (no super/sub C, D)
+
+    e) "doIt C"
+
+    f) "doIt A" (NOTE A <: Object => A[] <: Object[])             (2p)
+
+    g) compile error, no super sub for generic types (os = as)    (2p)
